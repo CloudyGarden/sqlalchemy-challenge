@@ -96,8 +96,8 @@ def temp():
     temps = list(np.ravel(results))
     return jsonify(temps=temps)
 
-@app.route("/api/v1.0/temp/start")
-@app.route("/api/v1.0/temp/start/end")
+@app.route("/api/v1.0/temp/<start>")
+@app.route("/api/v1.0/temp/<start>/<end>")
 def stats(start=None, end=None):
     
     most_active_stations = session.query(station.station, func.count(measurement.station))\
